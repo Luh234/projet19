@@ -3,7 +3,7 @@ const respAutor = document.getElementById('respAutor');
 
 botaoAutor.addEventListener('click', pegarInformacao);
 
-const urlBase = "https://back-one-gamma.vercel.app/"; // Substitua pela URL do seu Back-End na Vercel
+const urlBase = "https://back-one-gamma.vercel.app/"; 
 
 async function pegarInformacao() {
     respAutor.innerText = "Aguarde...";
