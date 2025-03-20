@@ -89,3 +89,34 @@ async function excluirUsuario(id) {
   }
   window.location.href = 'home.html';
 }
+
+tabelaCorpo.addEventListener('click', acao);
+
+function acao(e) {
+  if (e.target.classList.contains("botaoExcluir")) {
+    e.preventDefault();
+    const id = e.target.getAttribute("href");
+    excluirUsuario(id);
+  }
+}
+
+async function excluirUsuario(id) {
+  try {
+    const endpoint = `/usuario/${id}`;
+    const urlFinal = urlBase + endpoint;
+    const response = await fetch(urlFinal, {
+      method: 'DELETE'
+    });
+
+    if (!response.ok) {
+      throw new Error(`Erro na requisição: ${response.status}`);
+    }
+    
+    alert('Usuário excluido com sucesso!');
+
+  } catch (error) {
+    console.error(error);
+    alert('Usuário excluido não foi excluido!');
+  }
+  window.location.href = 'home.html';
+}
